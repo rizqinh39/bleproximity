@@ -51,33 +51,35 @@ Built with **100% Kotlin**, **Jetpack Compose (Material 3)**, and **MVVM Clean A
 - **Asynchronous / Reactive**: Kotlin Coroutines & `StateFlow` / `callbackFlow`.
 - **Hardware & Permissions**: Bluetooth Low Energy API (`BluetoothLeScanner`), Android 12+ API 31+ permissions (`BLUETOOTH_SCAN`, `BLUETOOTH_CONNECT`), BroadcastReceiver (`BluetoothAdapter.ACTION_STATE_CHANGED`).
 
----
+## 🛠️ Instruksi Kompilasi & Build
 
-## 🎓 Jetpack Compose Live Interview Mentorship Guide
+### Prasarat (Prerequisites)
+- **JDK**: Java 17 (Rekomendasi: Temurin/OpenJDK 17)
+- **Android Studio**: Jellyfish (2023.3.1) atau versi lebih baru
+- **Min SDK**: 24 (Android 7.0) | **Target SDK**: 34 (Android 14)
 
-If asked about Jetpack Compose concepts during a technical interview:
-
-1. **State Hoisting**: Moving state up to make components stateless. In `ScannerScreen`, state is hoisted up to `ScannerViewModel` via `ScannerUiState`, making `ScannerScreen` reusable and easy to unit test or preview.
-2. **Recomposition**: Compose automatically re-executes composable functions when state (`collectAsState()`) changes.
-3. **Scaffold**: Slot-based Material 3 container handling TopAppBar, content margins, and bottom bars seamlessly.
-4. **LazyColumn**: Efficient list component equivalent to XML `RecyclerView` that recycles UI nodes on screen.
-5. **Canvas**: Declarative 2D drawing API (`drawCircle`, `drawLine`) used to build the Concentric Circles Radar animation without needing custom XML View subclasses.
-
----
-
-## 🛠️ Building & Running Unit Tests
-
-### Run Unit Tests
+### 1. Menjalankan Unit Test
 ```bash
 ./gradlew test
 ```
 
-### Build Debug APK
+### 2. Build Debug APK
 ```bash
 ./gradlew assembleDebug
 ```
+*Hasil APK:* `app/build/outputs/apk/debug/app-debug.apk`
+
+### 3. Build Release APK
+```bash
+./gradlew assembleRelease
+```
+*Hasil APK:* `app/build/outputs/apk/release/app-release.apk`
 
 ---
 
-## 🤖 AI Disclosure & Mentorship
-This project was developed with assistance from an AI Coding Agent acting as a Senior Android Engineer & Mentor, providing beginner-friendly Jetpack Compose commentary, architecture structuring, and automated test setup.
+## 🤖 AI Usage Disclosure
+Sesuai dengan panduan pengerjaan, proyek ini dikembangkan dengan bantuan **Generative AI Agent** (sebagai Senior Android Architect & Mentor) untuk:
+- Membantu merancang struktur proyek MVVM + Clean Architecture & Hilt DI module.
+- Menyusun logika matematika estimasi jarak RSSI (`RssiDistanceCalculator`) dan algoritma *Watchdog Timer*.
+- Mengatur konfigurasi otomatisasi CI/CD pada GitHub Actions (`android-release.yml`).
+- Seluruh logika bisnis, penanganan izin runtime, dan komponen UI Jetpack Compose telah diverifikasi serta diuji melalui unit test.
